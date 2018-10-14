@@ -1,5 +1,6 @@
 package gr.parisk85.admin.controller;
 
+import gr.parisk85.admin.model.Credentials;
 import gr.parisk85.admin.model.User;
 import gr.parisk85.admin.service.UserService;
 import gr.parisk85.admin.service.impl.SecurityService;
@@ -33,8 +34,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/login")
-    public void login(@RequestBody User user) {
-        securityService.login(user.getUsername(), user.getPassword());
+    public void login(@RequestBody Credentials credentials) {
+        securityService.login(credentials.getUsername(), credentials.getPassword());
     }
 
     @GetMapping(value = "/logout")
